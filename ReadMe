@@ -1,0 +1,59 @@
+CSL452 Artificial Intelligence - Lab 3
+
+Gaurav Mittal 2012CSB1013
+Kaushal Yagnik 2012CSB1039
+
+Implemented in Python
+
+Requirement:
+
+a. Python 2.7
+b. Numpy module
+
+1. Sudoku Solver using CSP (folder 'p1')
+
+	The various backtracking algorithm implementing the sudoku solver as constraint satisfaction problem are as follows:
+
+		(i) BS.py -> Generic Backtracking search with node and arc-consistency constraints
+
+		(ii) BS_1.py -> Integrating BS with minimum remaining values(MRV) heuristic
+
+		(iii) BS_2.py -> Integrating BS_1 with least constraining value(LCV) heuristic
+
+		(iv) BS_FC.py -> Integrating BS_2 with forward checking
+
+		(v) BS_MAC.py -> Integrating BS_2 with MAC algorithm - BS-MAC
+
+	How to run:
+
+	Run each python code providing input file containing rasterized Sudoku puzzle and the output file where corresponding solution will be saved:
+
+		$ python <bs_file> <input_file_path> <output_file_path>
+
+		For eg. python BS_MAC.py p.txt output_BS_MAC.txt
+
+	This generates <output_file> containing solutions of solved sudoku's stored in rasterized format - in case a sudoku is unsolvable, it stored 'UNSAT' for that puzzle followed by the input
+
+
+2. Sudoku Solver using MiniSat (folder 'p2')
+
+	How to Run:
+
+		1. Ensure that the binary MiniSat_v1.14_linux is executable. If not run the following command from the directory:
+
+			$ chmod +x MiniSat_v1.14_linux
+
+		2. Run the following command to use MiniSat to solve sudoku's providing input file containing rasterized Sudoku puzzle and the output file where corresponding solution will be saved:
+
+			$ python readSolver.py <input_file_path> <output_file_path>
+
+	Files generated:
+
+	1. cnf.txt - contains CNF constraints for every sudoku
+
+	2. constraints - contains static CNF constraints which are constant for every sudoku puzzle
+
+	3. out.txt - contains the output from MiniSat to be parsed to generate solution for a sudoku puzzle in the desired format
+
+	4. <output_file> - solutions of solved sudoku's stored in rasterized format - in case a sudoku is unsolvable, it stored 'UNSAT' for that puzzle followed by the input
+
